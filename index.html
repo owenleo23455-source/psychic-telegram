@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REX Movie Zone - Trailers & Full Movies</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+  <div class="intro-text">REX MOVIE ZONE</div>
+</div>
+
+<header id="main-content" style="display:none;">
+  <h1>🎬 REX Movie Zone</h1>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search trailers or movies...">
+    <button onclick="searchTrailers()">Search</button>
+  </div>
+  <div class="filter-bar">
+    <button onclick="filterCategory('all')">All</button>
+    <button onclick="filterCategory('Action')">Action</button>
+    <button onclick="filterCategory('Drama')">Drama</button>
+    <button onclick="filterCategory('Comedy')">Comedy</button>
+    <button onclick="filterCategory('Horror')">Horror</button>
+    <button onclick="filterCategory('Sci-Fi')">Sci-Fi</button>
+  </div>
+</header>
+
+<main id="main-content" style="display:none;">
+  <section>
+    <h2>Latest Movie Trailers</h2>
+    <div id="trailer-list" class="grid">Loading...</div>
+  </section>
+
+  <section>
+    <h2>🔥 Trending Trailers</h2>
+    <div id="trending-list" class="grid">Loading...</div>
+  </section>
+
+  <section>
+    <h2>⭐ Most Viewed Trailers</h2>
+    <div id="ranking-list" class="grid">Loading...</div>
+  </section>
+
+  <section>
+    <h2>🎥 Full Movies</h2>
+    <div id="movies-list" class="grid">Loading...</div>
+  </section>
+</main>
+
+<!-- Modal -->
+<div id="videoModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <iframe id="videoFrame" frameborder="0" allowfullscreen></iframe>
+    <div class="modal-details">
+      <h2 id="modalTitle"></h2>
+      <p id="modalChannel"></p>
+      <p id="modalViews"></p>
+      <p id="modalDate"></p>
+    </div>
+  </div>
+</div>
+
+<footer id="main-content" style="display:none;">
+  <p>Powered by YouTube Data API</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // Preloader fade out after 5 seconds
+  setTimeout(() => {
+    document.getElementById('preloader').style.display = 'none';
+    document.querySelectorAll('#main-content').forEach(el => el.style.display = 'block');
+  }, 5000);
+</script>
+</body>
+</html>
